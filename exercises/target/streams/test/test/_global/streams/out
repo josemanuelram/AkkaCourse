@@ -1,0 +1,64 @@
+[debug] javaOptions: Vector()
+[debug] Forking tests - parallelism = false
+[debug] Create a single-thread test executor
+[debug] Runner for org.scalatest.tools.Framework produced 5 initial tasks for 5 tests.
+[debug]   Running TaskDef(com.lightbend.training.coffeehouse.CoffeeHouseSpec, sbt.ForkMain$SubclassFingerscan@2b171709, false, [SuiteSelector])
+[info] CoffeeHouseSpec:
+[info] Creating CoffeeHouse
+[info] - should result in logging a status message at debug
+[info] - should result in creating a child actor with the name 'barista'
+[info] - should result in creating a child actor with the name 'waiter'
+[info] Sending CreateGuest to CoffeeHouse
+[info] - should result in creating a Guest
+[info] - should result in logging status guest added to guest book
+[info] Sending ApproveCoffee to CoffeeHouse
+[info] - should result in forwarding PrepareCoffee to Barista if caffeineLimit not yet reached
+[info] - should result in Barista sending a CoffeePrepared to Waiter if caffeineLimit not yet reached
+[info] - should result in logging status guest caffeine count incremented
+[info] - should result in logging a status message at info if caffeineLimit reached
+[info] - should result in stopping the Guest if caffeineLimit reached
+[info] On termination of Guest, CoffeeHouse
+[info] - should remove the guest from the guest book
+[info] - should result in logging a thanks message at info
+[debug]     Produced 0 nested tasks and 12 events.
+[debug]   Running TaskDef(com.lightbend.training.coffeehouse.GuestSpec, sbt.ForkMain$SubclassFingerscan@67c3cc0f, false, [SuiteSelector])
+[info] GuestSpec:
+[info] Sending CoffeeServed to Guest
+[info] - should result in increasing the coffeeCount and log a status message at info
+[info] - should result in sending ServeCoffee to Waiter after finishCoffeeDuration
+[info] Sending CoffeeFinished to Guest
+[info] - should result in sending ServeCoffee to Waiter
+[info] - should result in a CaffeineException if caffeineLimit exceeded
+[debug]     Produced 0 nested tasks and 4 events.
+[debug]   Running TaskDef(com.lightbend.training.coffeehouse.WaiterSpec, sbt.ForkMain$SubclassFingerscan@4dba93a, false, [SuiteSelector])
+[info] WaiterSpec:
+[info] Sending ServeCoffee to Waiter
+[info] - should result in sending ApproveCoffee to CoffeeHouse
+[debug]     Produced 0 nested tasks and 1 events.
+[debug]   Running TaskDef(com.lightbend.training.coffeehouse.CoffeeHouseAppSpec, sbt.ForkMain$SubclassFingerscan@67532bc5, false, [SuiteSelector])
+[info] CoffeeHouseAppSpec:
+[info] Calling argsToOpts
+[info] - should return the correct opts for the given args
+[info] Calling applySystemProperties
+[info] - should apply the system properties for the given opts
+[info] Creating CoffeeHouseApp
+[info] - should result in creating a top-level actor named 'coffee-house'
+[info] Calling createGuest
+[info] - should result in sending CreateGuest to CoffeeHouse count number of times
+[debug]     Produced 0 nested tasks and 4 events.
+[debug]   Running TaskDef(com.lightbend.training.coffeehouse.BaristaSpec, sbt.ForkMain$SubclassFingerscan@2ec938c3, false, [SuiteSelector])
+[info] BaristaSpec:
+[info] Sending PrepareCoffee to Barista
+[info] - should result in sending a CoffeePrepared response after prepareCoffeeDuration
+[debug]     Produced 0 nested tasks and 1 events.
+[info] Run completed in 5 seconds, 316 milliseconds.
+[info] Total number of tests run: 22
+[info] Suites: completed 5, aborted 0
+[info] Tests: succeeded 22, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[debug] Passed tests:
+[debug] 	com.lightbend.training.coffeehouse.CoffeeHouseSpec
+[debug] 	com.lightbend.training.coffeehouse.GuestSpec
+[debug] 	com.lightbend.training.coffeehouse.WaiterSpec
+[debug] 	com.lightbend.training.coffeehouse.CoffeeHouseAppSpec
+[debug] 	com.lightbend.training.coffeehouse.BaristaSpec
